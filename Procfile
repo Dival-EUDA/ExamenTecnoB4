@@ -1,0 +1,1 @@
+web: gunicorn ExamenTecnoB4.wsgi --log-file -
