@@ -251,7 +251,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Tables</h4>
+                        <h4 class="page-title">Tabla</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -277,30 +277,76 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Informacion Empleados y Tabla</h5>
+                                <h5 class="card-title">Informacion Empleados </h5>
                                 <div class="table-responsive">
-                                    <table id="zero_config" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre del Trabajador</th>
-                                                <th>Puesto</th>
-                                                <th>Computadora en Uso</th>
-                                            </tr>
-                                        </thead>
+                                     <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">No</th>
+                                          <th scope="col">Nombre</th>
+                                             <th scope="col">Apellido</th>
+                                          <th scope="col">Puesto</th>
+                                          <th scope="col">Computador</th>
+                                        </tr>
+                                      </thead>
                                         {%if empleado%}
-                                        <tbody>
-                                            <tr>
-                                                {%for arrayempleado in empleado%}
-                                                <td>{arrayempleado.nombre}</td>
-                                                <td>{arrayempleado.puesto}</td>
-                                                <td>{arrayempleado.fk_computadora}</td>
-                                                <td>61</td>
-                                                {%endfor%}
-                                                {%else%}
-
-                                                {%endif%}
-                                            </tr>
-                                        </tfoot>
+                                      <tbody>
+                                      {%for arrayempleado in empleado%}
+                                        <tr>
+                                          <td>{{arrayempleado.pk_empleado}}</td>
+                                            <td>{{arrayempleado.nombre}}</td>
+                                          <td>{{arrayempleado.apellido}}</td>
+                                            <td>{{arrayempleado.puesto}}</td>
+                                            {%if arrayempleado.computadora != "null"%}
+                                          <td>{{arrayempleado.computadora}}</td>
+                                            {%else%}
+                                            <td>No posee</td>
+                                            {%endif%}
+                                            {%endfor%}
+                                            {%else%}
+                                            No hay datos de computadoras, ingrese una
+                                            {%endif%}
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="card-body">
+                                <h5 class="card-title">Informacion Computadoras</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">No</th>
+                                          <th scope="col">Marca</th>
+                                          <th scope="col">Modelo</th>
+                                          <th scope="col">Precio</th>
+                                            <th scope="col">Año</th>
+                                            <th scope="col">Disponibilidad</th>
+                                        </tr>
+                                      </thead>
+                                        {%if computer%}
+                                      <tbody>
+                                      {%for arraycomputer in computer%}
+                                        <tr>
+                                          <td>{{arraycomputer.pk_computadora}}</td>
+                                            <td>{{arraycomputer.marca}}</td>
+                                          <td>{{arraycomputer.modelo}}</td>
+                                            <td>$.{{arraycomputer.precio}}</td>
+                                            <td>{{arraycomputer.date}}</td>
+                                            {%if arraycomputer.uso == "0"%}
+                                          <td>Sí</td>
+                                            {%else%}
+                                            <td>No</td>
+                                            {%endif%}
+                                            {%endfor%}
+                                            {%else%}
+                                            No hay datos de computadoras, ingrese una
+                                            {%endif%}
+                                        </tr>
+                                      </tbody>
                                     </table>
                                 </div>
 
@@ -319,6 +365,7 @@
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
             </div>
+
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
@@ -364,6 +411,7 @@
          *       Basic Table                   *
          ****************************************/
         $('#zero_config').DataTable();
+        $('#zero_config2').DataTable();
     </script>
 
 </body>

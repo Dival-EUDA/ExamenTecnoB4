@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ExamenTecnoB4.urls'
@@ -74,11 +74,11 @@ WSGI_APPLICATION = 'ExamenTecnoB4.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Examen',
+        'NAME': 'Examen2',
         'USER': 'UDA',
         'PASSWORD': '12345',
         'HOST': 'localhost',
@@ -94,7 +94,7 @@ DATABASES = {
         default=config('DATABASE_URL')
     )
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

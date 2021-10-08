@@ -8,7 +8,8 @@ def CRUD(request):
 
 def TABLES(request):
     empleado = Empleado.objects.all()
-    return render(request, 'tables.html',{'empleado':empleado})
+    computer = Computador.objects.all()
+    return render(request, 'tables.html',{'empleado':empleado,'computer':computer})
 
 def FORM(request):
     if request.method == "POST":
@@ -16,12 +17,14 @@ def FORM(request):
         Modelo = request.POST.get('modelo')
         Precio = request.POST.get('precio')
         Date = request.POST.get('date')
+
         model_computer = Computador(marca=Marca,
                                     modelo=Modelo,
                                     precio=Precio,
-                                    date=Date)
+                                    date=Date,
+                                    )
         model_computer.save()
-        return redirect('CRUD:FORM')
+        return redirect('CRUD:CRUD')
     elif request.method == 'GET':
         return render(request, 'form-basic.html')
 
@@ -31,8 +34,14 @@ def FORM2(request):
         Name = request.POST.get('name')
         Surname = request.POST.get('surname')
         Position = request.POST.get('position')
-        ComputerU = request.POST.get('computer')
+        Pc = request.POST.get("computer")
 
-
-
-    return render(request, 'form-wizard.html',{'computer':computer})
+        model_empleado = Empleado(nombre=Name,
+                                  apellido=Surname,
+                                  puesto=Position,
+                                  computadora=Pc,
+                                  )
+        model_empleado.save()
+        return redirect('CRUD:CRUD')
+    elif request.method == 'GET':
+        return render(request, 'form-wizard.html',{'computer':computer})

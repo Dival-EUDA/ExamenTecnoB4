@@ -16,4 +16,4 @@ class Empleado(models.Model):
     nombre = models.CharField(max_length=50, null=False, blank=False)
     apellido = models.CharField(max_length=50, null=False, blank=False)
     puesto = models.CharField(max_length=50, null=False, blank=False)
-    fk_computadora = models.OneToOneField(Computador, null=False, blank=False,on_delete=models.CASCADE)
+    computadora = models.CharField(max_length=50, null=True, blank=True, default="null")
