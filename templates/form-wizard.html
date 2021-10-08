@@ -3,6 +3,7 @@
 <html dir="ltr" lang="en">
 
 <head>
+    <script src="https://kit.fontawesome.com/1178b9b9f3.js" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -118,7 +119,7 @@
                         <!-- Comment -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-bell"></i>
                             </a>
                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Action</a>
@@ -134,7 +135,7 @@
                         <!-- Messages -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-comment-dots"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
                                 <ul class="list-style-none">
@@ -225,7 +226,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{%url 'CRUD:tables'%}" aria-expanded="false"><span class="hide-menu">Tabla de información</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{%url 'CRUD:tables'%}" aria-expanded="false"><i class="fas fa-table"></i><span class="hide-menu">Tabla de información</span></a>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -245,7 +246,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Register Employee New</h4>
+                        <h4 class="page-title">Registro de Empleado Nuevo</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -269,28 +270,28 @@
                 <!-- ============================================================== -->
                 <div class="card">
                     <div class="card-body wizard-content">
-                        <h4 class="card-title">Register Employee</h4>
+                        <h4 class="card-title">Resgistro de Empleado</h4>
                         <h6 class="card-subtitle"></h6>
                         <form id="example-form" action="#" class="m-t-40">
                             {% csrf_token %}
                             <div>
                                 <h3>Profile</h3>
                                 <section>
-                                    <label for="name">Name *</label>
+                                    <label for="name">Nombre *</label>
                                     <input id="name" name="name" type="text" class="required form-control">
-                                    <label for="surname">Surname *</label>
+                                    <label for="surname">Apelldido *</label>
                                     <input id="surname" name="surname" type="text" class="required form-control">
-                                    <label for="position">Position *</label>
+                                    <label for="position">Posicion *</label>
                                     <input id="position" name="position" type="text" class="required form-control">
-                                    <label for="computer">Computer select</label>
+                                    <label for="computer">Seleccione su computadora</label>
                                     <div class="form-group">
                                         {%if computer%}
-                                        <select class="form-control" id="computer">
+                                        <select name="computer" class="form-control" id="computer">
                                             {%for arraycomputer in computer%}
-                                          <option>{arraycomputer.modelo}</option>
+                                          <option><p name="index">{arraycomputer.pk_computadora}</p>{arraycomputer.modelo}</option>
                                             {%endfor%}
                                             {%else%}
-                                            <option>No hay datos</option>
+                                            <option>Sin datos, posiblemente no haya computadoras disponibles</option>
                                             {%endif%}
                                         </select>
                                     </div>

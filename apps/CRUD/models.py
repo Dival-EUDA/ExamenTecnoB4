@@ -8,6 +8,7 @@ class Computador(models.Model):
     modelo = models.CharField(max_length=50, null=False, blank=False)
     precio = models.CharField(max_length=50, null=False, blank=False)
     date = models.CharField(max_length=50, null=False, blank=False)
+    uso = models.CharField(max_length=2, null=False, blank=False, default="0")
 
 
 class Empleado(models.Model):
